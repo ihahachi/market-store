@@ -7,7 +7,7 @@ use App\Http\Requests\BonsortieReq;
 
 use App\vendeur;
 use App\bon_entre;
-use App\detail;
+use App\edetail;
 use App\article;
 use PDF;
 
@@ -55,7 +55,18 @@ class BonentreController extends Controller
 
     public function show($id)
     {
-        //
+         // Get all art.
+        $articles = article::all();
+
+        $bs = bon_entre::find($id);
+        $details = $bs->edetails;
+
+        // calculat montant
+        //$sumBon = $bs->sumPrice($id);
+        //$sumBonDemi = $bs->sumPriceDemi($id);
+        // Find bon by id
+        $bon = bon_entre::find($id);
+        return view('be_detail', compact('details','bon','articles'));
     }
 
 

@@ -4,81 +4,65 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Edetail;
+use App\Article;
+
 class EdetailController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $Detail = new Edetail;
+
+        $Detail->id_article = $request->input('id_article');
+        $Detail->bon_entre_id = $request->input('bon_entre_id');
+        $Detail->quantite = $request->input('quantite');
+        // $Detail->prix_vent = $request->input('prix_vent');
+        $Detail->type = $request->input('type');
+        $Detail->prix_vent = 10;
+        $Detail->save();
+
+        // $article = article::find($Detail->id_article);
+        // $article->minusStock($Detail->quantite);
+
+        return back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+        $details = Edetail::find($id);
+        $details->delete();
+        return back();
     }
 }

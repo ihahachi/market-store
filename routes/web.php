@@ -38,6 +38,12 @@ Route::get('/backup_bonsorties/{id}/remove','BonsortieController@remove');
 
 Route::get('be_entre','BonentreController@index');
 Route::post('be_entre','BonentreController@store');
+Route::get('be_entre/{id}','BonentreController@show');
+
+
+Route::post('/edetail','EdetailController@store');
+Route::delete('/edetail/{id}','EdetailController@destroy');
+
 
 Route::get('/ls_vendeurs','VendeurController@index');
 Route::get('/ls_vendeurs/{id}/edit','VendeurController@edit');
