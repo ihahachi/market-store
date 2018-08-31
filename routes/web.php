@@ -36,6 +36,9 @@ Route::get('/backup_bonsorties/{id}','BonsortieController@undelete');
 Route::get('/backup_bonsorties/{id}/remove','BonsortieController@remove');
 
 
+Route::get('be_entre','BonentreController@index');
+Route::post('be_entre','BonentreController@store');
+
 Route::get('/ls_vendeurs','VendeurController@index');
 Route::get('/ls_vendeurs/{id}/edit','VendeurController@edit');
 Route::put('/ls_vendeurs/{id}','VendeurController@update');
