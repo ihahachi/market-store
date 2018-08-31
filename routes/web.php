@@ -44,6 +44,8 @@ Route::get('be_entre/{id}','BonentreController@show');
 Route::post('/edetail','EdetailController@store');
 Route::delete('/edetail/{id}','EdetailController@destroy');
 
+Route::post('/decharge','DechargeController@store');
+Route::delete('/decharge/{id}','DechargeController@destroy');
 
 Route::get('/ls_vendeurs','VendeurController@index');
 Route::get('/ls_vendeurs/{id}/edit','VendeurController@edit');
@@ -61,6 +63,4 @@ Route::get('stocks/out','StockController@out');
 Route::get('stocks/perdu','StockController@perdu');
 Route::post('stocks','StockController@store');
 
-Route::get('/bs_entrer', function () {
-    return view('bs_entrer');
-});
+

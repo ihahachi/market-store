@@ -9,6 +9,7 @@ use App\vendeur;
 use App\bon_entre;
 use App\edetail;
 use App\article;
+use App\decharge;
 use PDF;
 
 class BonentreController extends Controller
@@ -60,13 +61,12 @@ class BonentreController extends Controller
 
         $bs = bon_entre::find($id);
         $details = $bs->edetails;
+        $decharges = $bs->decharges;
 
-        // calculat montant
-        //$sumBon = $bs->sumPrice($id);
-        //$sumBonDemi = $bs->sumPriceDemi($id);
         // Find bon by id
         $bon = bon_entre::find($id);
-        return view('be_detail', compact('details','bon','articles'));
+         return view('be_detail', compact('details','bon','articles','decharges'));
+
     }
 
 

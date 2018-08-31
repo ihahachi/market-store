@@ -19,7 +19,7 @@
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header">Autres Pages:</h6>
             <a class="dropdown-item" href="{{ url('/bs_sortie') }}">Bon Sortie</a>
-            <a class="dropdown-item" href="{{ url('/bs_entrer') }}">Bon Entrer</a>
+            <a class="dropdown-item" href="{{ url('/be_entre') }}">Bon Entrer</a>
           </div>
         </li>
 
@@ -39,7 +39,7 @@
               </li>
 
 
-              
+
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

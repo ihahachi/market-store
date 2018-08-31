@@ -32,7 +32,7 @@
     <!-- Page Content -->
     <div class="row" style="margin-left: 0px;">
         <div class="col-md-8">
-            <form action="{{ url('/edetail') }}" method="post">
+            <form action="{{ url('edetail') }}" method="post">
             @csrf
                 <div class="form-row">
                     <div class="col">
@@ -119,17 +119,17 @@
               </div>
             </div>
             <div class="card-footer small text-muted">
-
+                Totale de vent : <strong>{{ $details->sum('prix_vent') }} DA</strong>
             </div>
           </div>
 
           <div class="row" style="margin-left: 0px;">
             <div class="col-md-8">
-                <form action="{{ url('/edetail') }}" method="post">
+                <form action="{{ url('decharge') }}" method="post">
                 @csrf
                     <div class="form-row">
                         <div class="col">
-                            <select name="type" class="form-control">
+                            <select name="nom" class="form-control">
                                <option value="Ftoure">Ftoure</option>
                                <option value="Gasoil">Gasoil</option>
                                <option value="Service maintenance">Service maintenance</option>
@@ -160,7 +160,7 @@
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Liste des Produits</div>
+              Frais divers</div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-sm table-hover" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
@@ -173,13 +173,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                  @foreach ($details as $bs)
+                  @foreach ($decharges as $de)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $bs->article->ref }}</td>
-                        <td>{{ $bs->article->nom }}</td>
+                        <td>{{ $de->nom }}</td>
+                        <td>{{ $de->montant  }}</td>
                         <td>
-                            <form action="{{ url('edetail/' .$bs->id ) }}" method="POST">
+                            <form action="{{ url('decharge/' .$de->id ) }}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
                                 <button class="btn btn-danger btn-sm" type="submit">
@@ -194,7 +194,7 @@
               </div>
             </div>
             <div class="card-footer small text-muted">
-
+                    Total les Frais divers : <strong>{{ $decharges->sum('montant') }} DA</strong>
             </div>
           </div>
 
