@@ -48,6 +48,7 @@
                             <input type="text" class="form-control" placeholder="Quantité"
                             value="{{ old('quantite')}}" name="quantite">
                             <input hidden type="text" name="bon_entre_id" value="{{ $bon->id }}">
+
                     </div>
 
                     <div class="col">
@@ -67,7 +68,7 @@
             </form>
         </div>
         <div class="col-md-4 d-flex justify-content-end">
-                <a href="{{ url('/bs_sortie/print/' . $bon->id ) }}"  class="btn btn-secondary ">
+                <a href="#"  class="btn btn-secondary ">
                         <i class="fas fa-print"></i> Imprimer
                 </a>
         </div>
@@ -90,6 +91,7 @@
                         <th>Marque</th>
                         <th>Prix</th>
                         <th>Quantité</th>
+                        <th>Etat</th>
                         <th>Opération</th>
                     </tr>
                   </thead>
@@ -103,6 +105,7 @@
                         <td>{{ $bs->article->marque->nom }}</td>
                         <td>{{ $bs->prix_vent }}</td>
                         <td>{{ $bs->quantite }}</td>
+                        <td>{{ $bs->type }}</td>
                         <td>
                             <form action="{{ url('edetail/' .$bs->id ) }}" method="POST">
                                 {{ csrf_field() }}
@@ -119,7 +122,8 @@
               </div>
             </div>
             <div class="card-footer small text-muted">
-                Totale de vent : <strong>{{ $details->sum('prix_vent') }} DA</strong>
+                La quantite totales des produits est : <strong>{{ $details->sum('quantite') }} </strong><br>
+                Totale de vent : <strong>{{ $amount }} DA</strong>
             </div>
           </div>
 
@@ -144,6 +148,7 @@
                                 <input type="text" class="form-control" placeholder="Montant"
                                 value="{{ old('montant')}}" name="montant">
                                 <input hidden type="text" name="bon_entre_id" value="{{ $bon->id }}">
+
                         </div>
 
                         <button type="submit" class="btn btn-info">
@@ -197,6 +202,21 @@
                     Total les Frais divers : <strong>{{ $decharges->sum('montant') }} DA</strong>
             </div>
           </div>
+          <br>
+          <div class="row">
+                <div class="col-md-12">
+                <form action="{{ url('be_entre/' . $bon->id ) }}" method="post">
+                    <input type="hidden" name="_method" value="PUT">
+                        @csrf
+                        <input hidden type="text" name="amount" value="{{ $amount }}">
+                        <input hidden type="text" name="decharges" value="{{ $decharges->sum('montant') }}">
+                        <button type="submit" class="btn btn-info btn-block">
+                                Valider
+                        </button>
+                  </form>
+                </div>
+          </div>
+          <br>
 
 
 

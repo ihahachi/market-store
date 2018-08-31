@@ -63,9 +63,13 @@ class BonentreController extends Controller
         $details = $bs->edetails;
         $decharges = $bs->decharges;
 
+
+        $amount = $details->sum(function($t){
+            return $t->quantite * $t->prix_vent;
+        });
         // Find bon by id
         $bon = bon_entre::find($id);
-         return view('be_detail', compact('details','bon','articles','decharges'));
+        return view('be_detail', compact('details','bon','articles','decharges','amount'));
 
     }
 
@@ -78,7 +82,13 @@ class BonentreController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $bs = bon_entre::find($id);
+
+        $bs->montant_total = $request->input('amount');
+
+        $bs->ecart = $bs->montant_total - ( $bs->montant_total + $request->input('decharges'));
+        $bs->save();
+        return back();
     }
 
 
