@@ -25,12 +25,19 @@ class BonentreController extends Controller
 
          // get last record
          $last = bon_entre::orderBy('created_at','desc')->first();
-         $last->id = $last->id + 1 ;
-         $NewRef = "BE000" . $last->id . "/" . date("Y");
+
+         if ( $last == null) {
+            $NewRef = 'BE0001';
+         } else {
+            $last->id = $last->id + 1 ;
+            $NewRef = "BE000" . $last->id . "/" . date("Y");
+         }
+
+
          // return view
          return view('bs_entrer', compact('bon_entre','vendeurs','NewRef'));
 
-       // return $last;
+
     }
 
 
@@ -86,7 +93,7 @@ class BonentreController extends Controller
 
         $bs->montant_total = $request->input('amount');
 
-        $bs->ecart = $bs->montant_total - ( $bs->montant_total + $request->input('decharges'));
+        $bs->ecart = $bs->montant_total - ( $bs->montant_versement + $request->input('decharges') + $bs->cradit_sortie );
         $bs->save();
         return back();
     }

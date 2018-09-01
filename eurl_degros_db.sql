@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  ven. 31 août 2018 à 15:08
+-- Généré le :  sam. 01 sep. 2018 à 00:40
 -- Version du serveur :  10.1.25-MariaDB
 -- Version de PHP :  7.1.7
 
@@ -75,18 +75,31 @@ INSERT INTO `articles` (`id`, `id_categorie`, `id_marque`, `depot_id`, `ref`, `n
 CREATE TABLE `bon_entres` (
   `id` int(10) UNSIGNED NOT NULL,
   `ref` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date_` date NOT NULL,
+  `date_` date DEFAULT NULL,
   `vendeur_id` int(10) UNSIGNED NOT NULL,
-  `montant_total` decimal(9,2) NOT NULL,
-  `montant_versement` decimal(9,2) NOT NULL,
-  `cradit_sortie` decimal(9,2) NOT NULL,
-  `cradit_entree` decimal(9,2) NOT NULL,
-  `ecart` decimal(9,2) NOT NULL,
-  `observation` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `montant_total` decimal(9,2) DEFAULT '0.00',
+  `montant_versement` decimal(9,2) DEFAULT '0.00',
+  `cradit_sortie` decimal(9,2) DEFAULT '0.00',
+  `cradit_entree` decimal(9,2) DEFAULT '0.00',
+  `ecart` decimal(9,2) DEFAULT '0.00',
+  `observation` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `bon_entres`
+--
+
+INSERT INTO `bon_entres` (`id`, `ref`, `date_`, `vendeur_id`, `montant_total`, `montant_versement`, `cradit_sortie`, `cradit_entree`, `ecart`, `observation`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'BE00001/2018', '2018-08-31', 6, '20000.00', '5000.00', '14205.00', '45000.00', '150.00', 'Rien', '2018-08-30 23:00:00', '2018-08-30 23:00:00', NULL),
+(2, 'BE0002/2018', '2018-09-01', 1, '0.00', '120457.00', '45000.00', '2000.00', '0.00', NULL, '2018-08-31 13:37:24', '2018-08-31 13:37:24', NULL),
+(3, 'BE0003/2018', '2018-09-01', 9, '0.00', '75600.00', '4500.00', '0.00', '0.00', NULL, '2018-08-31 15:14:50', '2018-08-31 15:14:50', NULL),
+(4, 'BE0004/2018', '2018-09-02', 6, '0.00', '45200.00', '2500.00', '0.00', '0.00', NULL, '2018-08-31 19:18:26', '2018-08-31 19:18:26', NULL),
+(5, 'BE0005/2018', '2018-09-04', 5, '26185.00', '5000.00', '1000.00', '0.00', '-1500.00', NULL, '2018-08-31 20:43:35', '2018-08-31 21:14:39', NULL),
+(6, 'BE0006/2018', '2018-08-31', 8, '250.00', '14000.00', '2000.00', '0.00', '0.00', NULL, '2018-08-31 20:56:44', '2018-08-31 21:09:07', NULL),
+(7, 'BE0007/2018', '2018-08-25', 5, '1000.00', '1000.00', '0.00', '0.00', '-500.00', NULL, '2018-08-31 21:15:23', '2018-08-31 21:16:27', NULL);
 
 -- --------------------------------------------------------
 
@@ -180,6 +193,21 @@ CREATE TABLE `decharges` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `decharges`
+--
+
+INSERT INTO `decharges` (`id`, `nom`, `bon_entre_id`, `montant`, `created_at`, `updated_at`) VALUES
+(2, 'Gasoil', 4, '1000.00', '2018-08-31 19:39:47', '2018-08-31 19:39:47'),
+(3, 'Ftoure', 4, '300.00', '2018-08-31 19:39:58', '2018-08-31 19:39:58'),
+(4, 'Avance', 4, '2500.00', '2018-08-31 19:40:10', '2018-08-31 19:40:10'),
+(6, 'Service maintenance', 2, '5000.00', '2018-08-31 19:40:49', '2018-08-31 19:40:49'),
+(7, 'Décharge', 2, '1500.00', '2018-08-31 19:40:59', '2018-08-31 19:40:59'),
+(9, 'Avance', 2, '4000.00', '2018-08-31 19:44:28', '2018-08-31 19:44:28'),
+(10, 'Service maintenance', 5, '1500.00', '2018-08-31 21:14:36', '2018-08-31 21:14:36'),
+(11, 'Gasoil', 7, '500.00', '2018-08-31 21:16:23', '2018-08-31 21:16:23'),
+(12, 'Ftoure', 7, '300.00', '2018-08-31 21:23:37', '2018-08-31 21:23:37');
 
 -- --------------------------------------------------------
 
@@ -299,12 +327,33 @@ CREATE TABLE `edetails` (
   `id_article` int(10) UNSIGNED NOT NULL,
   `bon_entre_id` int(10) UNSIGNED NOT NULL,
   `quantite` int(11) NOT NULL,
-  `prix_vent` decimal(9,2) NOT NULL,
+  `prix_vent` decimal(9,2) DEFAULT '0.00',
   `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `edetails`
+--
+
+INSERT INTO `edetails` (`id`, `id_article`, `bon_entre_id`, `quantite`, `prix_vent`, `type`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(3, 7, 2, 100, '10.00', 'DEMI', NULL, '2018-08-31 14:36:01', '2018-08-31 14:36:01'),
+(4, 8, 3, 20, '10.00', 'DEMI', NULL, '2018-08-31 15:15:18', '2018-08-31 15:15:18'),
+(5, 8, 3, 5, '10.00', 'RETOUR', NULL, '2018-08-31 15:15:32', '2018-08-31 15:15:32'),
+(14, 5, 4, 1, '250.00', 'GROS', NULL, '2018-08-31 20:06:04', '2018-08-31 20:06:04'),
+(15, 5, 4, 1, '280.00', 'DEMI', NULL, '2018-08-31 20:06:26', '2018-08-31 20:06:26'),
+(16, 5, 4, 1, '240.00', 'CLIENT', NULL, '2018-08-31 20:06:34', '2018-08-31 20:06:34'),
+(17, 5, 4, 1, '0.00', 'RETOUR', NULL, '2018-08-31 20:06:46', '2018-08-31 20:06:46'),
+(18, 5, 4, 1, '0.00', 'PERDU', NULL, '2018-08-31 20:07:04', '2018-08-31 20:07:04'),
+(20, 5, 4, 2, '250.00', 'GROS', NULL, '2018-08-31 20:22:57', '2018-08-31 20:22:57'),
+(21, 5, 5, 2, '250.00', 'GROS', NULL, '2018-08-31 20:43:51', '2018-08-31 20:43:51'),
+(22, 5, 5, 2, '280.00', 'DEMI', NULL, '2018-08-31 20:44:04', '2018-08-31 20:44:04'),
+(24, 8, 5, 25, '1005.00', 'CLIENT', NULL, '2018-08-31 20:54:57', '2018-08-31 20:54:57'),
+(25, 5, 6, 1, '250.00', 'GROS', NULL, '2018-08-31 20:56:53', '2018-08-31 20:56:53'),
+(28, 5, 7, 4, '250.00', 'GROS', NULL, '2018-08-31 21:15:54', '2018-08-31 21:15:54'),
+(29, 7, 7, 10, '250.00', 'GROS', NULL, '2018-08-31 21:21:17', '2018-08-31 21:21:17');
 
 -- --------------------------------------------------------
 
@@ -610,7 +659,7 @@ ALTER TABLE `articles`
 -- AUTO_INCREMENT pour la table `bon_entres`
 --
 ALTER TABLE `bon_entres`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `bon_sorties`
 --
@@ -630,7 +679,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT pour la table `decharges`
 --
 ALTER TABLE `decharges`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT pour la table `deposes`
 --
@@ -650,7 +699,7 @@ ALTER TABLE `details`
 -- AUTO_INCREMENT pour la table `edetails`
 --
 ALTER TABLE `edetails`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT pour la table `lots`
 --
