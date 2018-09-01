@@ -101,7 +101,15 @@
                         <td>{{ $bs->cradit_entree}}</td>
                         <td>{{ $bs->montant_total}}</td>
                         <td>{{ $bs->montant_versement}}</td>
-                        <td>{{ $bs->ecart}}</td>
+
+                        @if ( $bs->ecart > 0 )
+                            <td class="bg-success">{{ $bs->ecart}}</td>
+                        @elseif( $bs->ecart == 0 )
+                            <td>{{ $bs->ecart}}</td>
+                        @else
+                            <td class="bg-danger">{{ $bs->ecart}}</td>
+                        @endif
+
                          <td>
                                 <form action="{{ url('be_entre/'.$bs->id) }}" method="POST">
                                     {{ csrf_field() }}

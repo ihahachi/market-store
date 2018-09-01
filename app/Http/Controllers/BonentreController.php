@@ -93,7 +93,7 @@ class BonentreController extends Controller
 
         $bs->montant_total = $request->input('amount');
 
-        $bs->ecart = $bs->montant_total - ( $bs->montant_versement + $request->input('decharges') + $bs->cradit_sortie );
+        $bs->ecart =  ( $bs->montant_versement + $request->input('decharges') + $bs->cradit_sortie ) - $bs->montant_total;
         $bs->save();
         return back();
     }
