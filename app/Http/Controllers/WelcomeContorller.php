@@ -14,8 +14,8 @@ class WelcomeContorller extends Controller
     public function index()
     {
     	$articles = article::where('quantite',0)->count();
-    	$bs = bon_sortie::where('date_',date("Y-m-d"))->count();
-        $be = bon_entre::where('date_',date("Y-m-d"));
+    	$bs = bon_sortie::where('date_',date("Y-m-d"))->get();
+        $be = bon_entre::where('date_',date("Y-m-d"))->get();
         return view('welcome',compact('articles','bs','be'));
     }
 //__________________________________________________________//
