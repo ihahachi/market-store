@@ -211,7 +211,7 @@
                         <input hidden type="text" name="amount" value="{{ $amount }}">
                         <input hidden type="text" name="decharges" value="{{ $decharges->sum('montant') }}">
                         <button type="submit" class="btn btn-info btn-block">
-                                Valider
+                             valider ! <i class="fas fa-check "></i>
                         </button>
                   </form>
                 </div>
