@@ -40,6 +40,8 @@ Route::get('be_entre','BonentreController@index');
 Route::post('be_entre','BonentreController@store');
 Route::get('be_entre/{id}','BonentreController@show');
 Route::put('be_entre/{id}','BonentreController@update');
+route::get('be_entre/print/{id}','BonentreController@LoadPDF');
+
 
 Route::post('/edetail','EdetailController@store');
 Route::delete('/edetail/{id}','EdetailController@destroy');

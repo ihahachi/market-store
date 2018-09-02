@@ -68,7 +68,7 @@
             </form>
         </div>
         <div class="col-md-4 d-flex justify-content-end">
-                <a href="#"  class="btn btn-secondary ">
+                <a href="{{url('be_entre/print/' . $bon->id ) }}"  class="btn btn-secondary ">
                         <i class="fas fa-print"></i> Imprimer
                 </a>
         </div>

@@ -103,4 +103,15 @@ class BonentreController extends Controller
     {
         //
     }
+
+    public function LoadPDF($id)
+    {
+        $articles = article::all();
+        $details = bon_entre::find($id)->edetails;
+        $bon = bon_entre::find($id);
+        $pdf = PDF::loadView('printBE',compact('details','bon','articles'))
+        ->setPaper('a5', 'landscape');
+        return $pdf->stream();
+
+    }
 }
