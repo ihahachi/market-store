@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\article;
 use App\bon_sortie;
 use App\bon_entre;
+use App\stock;
+
 
 class WelcomeContorller extends Controller
 {
@@ -13,10 +16,14 @@ class WelcomeContorller extends Controller
 
     public function index()
     {
+    	$today = Carbon::today();
+
     	$articles = article::where('quantite',0)->count();
-    	$bs = bon_sortie::where('date_',date("Y-m-d"))->get();
-        $be = bon_entre::where('date_',date("Y-m-d"))->get();
-        return view('welcome',compact('articles','bs','be'));
+    	$bs = bon_sortie::where('date_', $today)->get();
+        $be = bon_entre::where('date_', $today)->get();
+        $stk = stock::whereDate('created_at',$today)->get();
+        return view('welcome',compact('articles','bs','be','stk'));
+
     }
 //__________________________________________________________//
 }

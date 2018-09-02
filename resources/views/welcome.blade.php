@@ -26,7 +26,11 @@
                   <div class="mr-5"><small>Bon Sortie : {{ $bs->count() }}</small></div>
                   <hr>
                   @foreach ( $bs as $b )
-                    <div class="mr-5"><small>{{ $b->vendeur->nom }} | {{ $b->sumPrice($b->id) }} DA</small></div>
+                    <div class="mr-5">
+                      <a class="text-light" href="{{ url('bs_sortie/' . $b->id ) }}">
+                        <small>{{ $b->vendeur->nom }} | {{ $b->sumPrice($b->id) }} DA</small>
+                      </a>
+                    </div>
                   @endforeach
                 </div>
             <a class="card-footer text-white clearfix small z-1" href="{{ url('bs_sortie') }}">
@@ -43,7 +47,7 @@
                   <div class="card-body-icon">
                     <i class="fas fa-download"></i>
                   </div>
-                  <div class="mr-5"><small>Bon Entrer : {{ $be->count() }}</small></div>
+                  <div class="mr-5"><small>bon Entrer : {{ $be->count() }}</small></div>
                   <hr>
                   <div class="mr-5"><small>Versement : {{ $be->sum('montant_versement') }} DA</small></div>
                   <div class="mr-5"><small>Credit Entr : {{ $be->sum('cradit_entree') }} DA</small></div>
@@ -79,8 +83,31 @@
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-box-open"></i>
                   </div>
-                  <div class="mr-5"><small>produits en rupture : {{ $articles }}</small></div>
+                       <div class="mr-5">
+                        <small>Produits en rupture : {{ $articles }}</small>
+                      </div>
                   <hr>
+                  <div class="mr-5">
+                    <a class="text-white" href="{{ url('stocks/perdu') }}">
+                        <small>Stock Perdu : 
+                          {{ $stk->where('type','PERDU')->count() }}
+                        </small>
+                    </a>
+                   </div>
+                   <div class="mr-5">
+                    <a class="text-white" href="{{ url('stocks/out') }}">
+                        <small>Stock Sortie : 
+                          {{ $stk->where('type','OUT')->count() }}
+                        </small>
+                    </a>
+                   </div>
+                   <div class="mr-5">
+                    <a class="text-white" href="{{ url('stocks/in') }}">
+                        <small>Stock Entrer : 
+                          {{ $stk->where('type','IN')->count() }}
+                        </small>
+                    </a>  
+                   </div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="{{ url('articles')}}">
                   <span class="float-left">Détails</span>
