@@ -14,6 +14,7 @@ use PDF;
 
 class BonentreController extends Controller
 {
+//__________________________________________________________//
 
     public function index()
     {
@@ -39,13 +40,13 @@ class BonentreController extends Controller
 
 
     }
-
+//__________________________________________________________//
 
     public function create()
     {
         //
     }
-
+//__________________________________________________________//
 
     public function store(BonsortieReq $request)
     {
@@ -59,7 +60,7 @@ class BonentreController extends Controller
         $bon_entre->save();
         return back();
     }
-
+//__________________________________________________________//
 
     public function show($id)
     {
@@ -79,13 +80,13 @@ class BonentreController extends Controller
         return view('be_detail', compact('details','bon','articles','decharges','amount'));
 
     }
-
+//__________________________________________________________//
 
     public function edit($id)
     {
         //
     }
-
+//__________________________________________________________//
 
     public function update(Request $request, $id)
     {
@@ -97,12 +98,13 @@ class BonentreController extends Controller
         $bs->save();
         return back();
     }
-
+//__________________________________________________________//
 
     public function destroy($id)
     {
         //
     }
+//__________________________________________________________//
 
     public function LoadPDF($id)
     {

@@ -73,8 +73,8 @@
                     <tr>
                         <th>N°</th>
                         <th>Ref</th>
-                        <th>Nom</th>                            
-                        <th>Quantité</th>
+                        <th>Désignation</th>                            
+                        <th>Qtn</th>
                         <th>Prix</th>
                         <th>Prix</th>
                         <th>Retour</th>

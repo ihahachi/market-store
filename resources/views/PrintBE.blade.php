@@ -44,16 +44,15 @@
 
             <h6 style="margin: 0%;"><b>{{ config('constants.nom' )}}</b></h6>
             <div class="row align-items-start tete">
-                <div class="col-md-6">
-                    <small><b>Tel :</b> {{ config('constants.tel' )}}</small><br>
-                    <small><b>Fax :</b> {{ config('constants.fax' )}}</small><br>
-                    <small><b>Address : </b>{{ config('constants.address' )}}</small>
-                </div>
-                <div class="col-md-6 rtl">
-                    <small><b>Vendeur :</b> {{ $bon->vendeur->nom }}</small><br>
-                    <small><b>Ref. BE :</b> {{ $bon->ref }}</small><br>
-                    <small><b>Date :</b> {{ $bon->date_ }}</small><br>
-                </div>
+            <div class="col-md-6">
+                <small><b>Address : </b>{{ config('constants.address' )}}</small><br>
+                <small><b>Date :</b> {{ $bon->date_ }}</small>
+            </div>
+            <div class="col-md-6 rtl">
+                <small><b>Ref. BE :</b> {{ $bon->ref }}</small><br>
+                <small><b>Vendeur :</b> {{ $bon->vendeur->nom }}</small><br>
+                <small><b>N° Tel :</b> {{ $bon->vendeur->tel }}</small><br>         
+            </div>
             </div>
 
 
@@ -69,16 +68,16 @@
             <div class="row align-items-start">
            <!-- DataTables Example -->
                 <div class="col">
-                <table class="table table-sm">
+                <table class="table table-bordered table-sm">
                     <thead>
                         <tr>
                             <th>N°</th>
                             <th>Ref</th>
-                            <th>Nom</th>
+                            <th>Désignation</th>
                             
-                            <th>Quantité</th>
+                            <th>Qtn</th>
+                            <th>Prix</th>
                             <th>Etat</th>
-                            <th>P.Vent</th>
                             <th>P.Gros</th>
                             <th>P.Demi-G</th>
                         </tr>
@@ -88,11 +87,10 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $bs->article->ref }}</td>
-                                <td>{{ $bs->article->nom }}</td>
-                                
-                                <td>{{ $bs->quantite }}</td>
-                                <td>{{ $bs->type }}</td>
+                                <td>{{ $bs->article->nom }}</td>                               
+                                <td>{{ $bs->quantite }}</td>                              
                                 <td>{{ $bs->prix_vent }}</td>
+                                <td>{{ $bs->type }}</td>
                                 <td></td>
                                 <td></td>
                             </tr>
@@ -101,6 +99,32 @@
                 </table>
             </div>
         </div>
+
+        <div class="row ">                      
+        <div class="col-8">
+            <table class="table table-bordered  table-sm">
+                <thead>
+                    <tr>
+                        <th>Credit Entrée</th>  
+                        <th>Credit Sortie</th> 
+                        <th>Montant total</th> 
+                        <th>Montant versement</th>
+                        <th>ECART</th>                                         
+                    </tr>
+                </thead>
+                <tbody>               
+                        <tr>             
+                            <td>{{ $bon->cradit_sortie }}</td> 
+                            <td>{{ $bon->cradit_entree }}</td> 
+                            <td>{{ $bon->montant_total }}</td>
+                            <td>{{ $bon->montant_versement }}</td>
+                            <td>{{ $bon->ecart }}</td>                   
+                        </tr>                 
+                </tbody>
+            </table>
+        </div>   
+    </div>
+
 
 
 
