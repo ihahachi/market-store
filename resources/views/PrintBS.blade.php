@@ -37,79 +37,115 @@
    
 </style>
 <body>
-    <div class="container-fluid">
+<div class="container-fluid">
 
 
 
 
-            <h6 style="margin: 0%;"><b>{{ config('constants.nom' )}}</b></h6>
-            <div class="row align-items-start tete">
-                <div class="col-md-6">
-                    <small><b>Tel :</b> {{ config('constants.tel' )}}</small><br>
-                    <small><b>Fax :</b> {{ config('constants.fax' )}}</small><br>
-                    <small><b>Address : </b>{{ config('constants.address' )}}</small>
-                </div>
-                <div class="col-md-6 rtl">
-                    <small><b>Vendeur :</b> {{ $bon->vendeur->nom }}</small><br>
-                    <small><b>Ref. BS :</b> {{ $bon->ref }}</small><br>
-                    <small><b>Date :</b> {{ $bon->date_ }}</small><br>
-                </div>
+        <h6 style="margin: 0%;"><b>{{ config('constants.nom' )}}</b></h6>
+        <div class="row align-items-start tete">
+            <div class="col-md-6">
+                <small><b>Address : </b>{{ config('constants.address' )}}</small><br>
+                <small><b>Date :</b> {{ $bon->date_ }}</small>
             </div>
-
-
-
-            <div class="row align-items-start">
-                <h6 class="titre"><b>BON SORTIE</b></h6>
-            </div>
-                
-
-      
-        
-
-            <div class="row align-items-start">
-           <!-- DataTables Example -->
-                <div class="col">
-                <table class="table table-sm">
-                    <thead>
-                        <tr>
-                            <th>N°</th>
-                            <th>Ref</th>
-                            <th>Nom</th>
-                            <th>Categorie</th>
-                            <th>Marque</th>
-                            <th>Quantité</th>
-                            <th>Vent</th>
-                            <th>P.Gros</th>
-                            <th>P.Demi-G</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($details as $bs)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $bs->article->ref }}</td>
-                                <td>{{ $bs->article->nom }}</td>
-                                <td>{{ $bs->article->categorie->nom }}</td>
-                                <td>{{ $bs->article->marque->nom }}</td>
-                                <td>{{ $bs->quantite }}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+            <div class="col-md-6 rtl">
+                <small><b>Ref. BS :</b> {{ $bon->ref }}</small><br>
+                <small><b>Vendeur :</b> {{ $bon->vendeur->nom }}</small><br>
+                <small><b>N° Tel :</b> {{ $bon->vendeur->tel }}</small><br>         
             </div>
         </div>
 
 
 
-
-
-
-
-
+    <div class="row align-items-start">
+                <h6 class="titre"><b>BON SORTIE</b></h6>
     </div>
+                
+
+      
+        
+
+    <div class="row align-items-start">
+           <!-- DataTables Example -->
+        <div class="col">
+            <table class="table table-bordered table-sm">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Ref</th>
+                        <th>Nom</th>                            
+                        <th>Quantité</th>
+                        <th>Prix</th>
+                        <th>Prix</th>
+                        <th>Retour</th>
+                        <th>Perdu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($details as $bs)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $bs->article->ref }}</td>
+                            <td>{{ $bs->article->nom }}</td>                        
+                            <td>{{ $bs->quantite }}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+   </div>
+
+    <div class="row ">
+                      
+        <div class="col-6 align-items-start">
+            <table class="table table-bordered  table-sm">
+                <thead>
+                    <tr>
+                        <th>Frais divers</th>                                            
+                    </tr>
+                </thead>
+                <tbody>               
+                        <tr>             
+                            <td>#</td>                     
+                        </tr>                 
+                </tbody>
+            </table>
+        </div>    
+    </div>
+
+
+    <div class="row">
+         <div class="col-6 align-items-left">
+            <table class="table table-bordered  table-sm">
+                <thead>
+                    <tr>
+                        <th>Credit Entrée</th>
+                        <th>Credit Sortie</th>                                             
+                    </tr>
+                </thead>
+                <tbody>               
+                        <tr>             
+                            <td>#</td> 
+                            <td>#</td>                     
+                        </tr>                 
+                </tbody>
+            </table>
+        </div>
+    </div>
+        
+
+
+
+
+
+
+
+
+</div>
 
 
 
