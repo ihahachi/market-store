@@ -95,31 +95,66 @@
             </div>
         </div>
 
+
+    <div class="row align-items-start">
+           <!-- DataTables Example -->
+                <div class="col-12">
+                <table class="table table-bordered table-sm">
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>Frais divers</th>  
+                            <th>La somme</th>                       
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($decharges as $de)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $de->nom }}</td> 
+                                <td>{{ $de->montant }} DA</td>                                        
+                            </tr>
+                        @endforeach
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+
         <div class="row ">                      
-        <div class="col-8">
+        <div class="col-12">
             <table class="table table-bordered  table-sm">
                 <thead>
                     <tr>
                         <th>Credit Entrée</th>  
-                        <th>Credit Sortie</th> 
-                        <th>Montant total</th> 
-                        <th>Montant versement</th>
+                        <th>Credit Sortie</th>
+                        <th>Total Frais</th> 
+                        <th>Montant Total</th> 
+                        <th>Montant Versement</th>
+
                         <th>ECART</th>                                         
                     </tr>
                 </thead>
                 <tbody>               
                         <tr>             
-                            <td>{{ $bon->cradit_sortie }}</td> 
-                            <td>{{ $bon->cradit_entree }}</td> 
-                            <td>{{ $bon->montant_total }}</td>
-                            <td>{{ $bon->montant_versement }}</td>
-                            <td>{{ $bon->ecart }}</td>                   
+                            <td><strong>{{ $bon->cradit_sortie }} DA</strong></td> 
+                            <td><strong>{{ $bon->cradit_entree }} DA</strong></td> 
+                            <td><strong>{{ $decharges->sum('montant') }} DA</strong></td>
+                            <td><strong>{{ $bon->montant_total }} DA</strong></td>
+                            <td><strong>{{ $bon->montant_versement }} DA</strong></td>
+                           <td><strong>{{ $bon->ecart }} DA</strong></td>                   
                         </tr>                 
                 </tbody>
             </table>
         </div>   
     </div>
 
+
+
+        
+<br>
+<br>
+<br>
     <div class="row ">
         <div class="col-10">
             <p class="text-right"><small><strong>Magazine</strong></small></p>

@@ -110,8 +110,9 @@ class BonentreController extends Controller
     {
         $articles = article::all();
         $details = bon_entre::find($id)->edetails;
+        $decharges = bon_entre::find($id)->decharges;
         $bon = bon_entre::find($id);
-        $pdf = PDF::loadView('printBE',compact('details','bon','articles'))
+        $pdf = PDF::loadView('printBE',compact('details','bon','articles','decharges'))
         ->setPaper(config('constants.pagePDF'), config('constants.pageOrientation'));
         return $pdf->stream();
 
