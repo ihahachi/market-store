@@ -143,6 +143,13 @@
         </div>   
     </div>
 
+    <div class="row ">
+        <div class="col-10">
+            <p class="text-right"><small><strong>Magazine</strong></small></p>
+        </div>    
+    </div>
+
+
 
       
         

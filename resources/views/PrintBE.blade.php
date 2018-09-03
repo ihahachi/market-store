@@ -73,13 +73,10 @@
                         <tr>
                             <th>N°</th>
                             <th>Ref</th>
-                            <th>Désignation</th>
-                            
+                            <th>Désignation</th>                           
                             <th>Qtn</th>
                             <th>Prix</th>
-                            <th>Etat</th>
-                            <th>P.Gros</th>
-                            <th>P.Demi-G</th>
+                            <th>Etat</th>                         
                         </tr>
                     </thead>
                     <tbody>
@@ -90,9 +87,7 @@
                                 <td>{{ $bs->article->nom }}</td>                               
                                 <td>{{ $bs->quantite }}</td>                              
                                 <td>{{ $bs->prix_vent }}</td>
-                                <td>{{ $bs->type }}</td>
-                                <td></td>
-                                <td></td>
+                                <td>{{ $bs->type }}</td>                       
                             </tr>
                         @endforeach
                     </tbody>
@@ -125,7 +120,11 @@
         </div>   
     </div>
 
-
+    <div class="row ">
+        <div class="col-10">
+            <p class="text-right"><small><strong>Magazine</strong></small></p>
+        </div>    
+    </div>
 
 
 
