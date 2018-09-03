@@ -104,7 +104,7 @@ class BonsortieController extends Controller
         $details = bon_sortie::find($id)->details;
         $bon = bon_sortie::find($id);
         $pdf = PDF::loadView('printBS',compact('details','bon','articles'))
-        ->setPaper('a5', 'landscape');
+        ->setPaper('a4', 'portrait');
         return $pdf->stream();
 
     }

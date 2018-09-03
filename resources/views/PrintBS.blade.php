@@ -42,8 +42,8 @@
 
 
 
-        <h6 style="margin: 0%;"><b>{{ config('constants.nom' )}}</b></h6>
-        <div class="row align-items-start tete">
+    <h6 style="margin: 0%;"><b>{{ config('constants.nom' )}}</b></h6>
+    <div class="row align-items-start tete">
             <div class="col-md-6">
                 <small><b>Address : </b>{{ config('constants.address' )}}</small><br>
                 <small><b>Date :</b> {{ $bon->date_ }}</small>
@@ -53,7 +53,7 @@
                 <small><b>Vendeur :</b> {{ $bon->vendeur->nom }}</small><br>
                 <small><b>N° Tel :</b> {{ $bon->vendeur->tel }}</small><br>         
             </div>
-        </div>
+    </div>
 
 
 
@@ -98,33 +98,39 @@
             </table>
         </div>
    </div>
-
-    <div class="row ">
-                      
-        <div class="col-6 align-items-start">
+   <div class="row ">                      
+        <div class="col-12">
             <table class="table table-bordered  table-sm">
                 <thead>
                     <tr>
-                        <th>Frais divers</th>                                            
+                        <th>Frais divers</th> 
+                        <th>Frais divers</th>
+                        <th>Frais divers</th>
+                        <th>Frais divers</th>
+                        <th>Frais divers</th>
+                        <th>Frais divers</th>                                           
                     </tr>
                 </thead>
                 <tbody>               
-                        <tr>             
-                            <td>#</td>                     
-                        </tr>                 
+                       <tr>             
+                            <td>1.</td>
+                            <td>2.</td>
+                            <td>3.</td>                 
+                            <td>4.</td>
+                            <td>5.</td>
+                            <td>6.</td>
+                        </tr>                
                 </tbody>
             </table>
-        </div>    
+        </div>   
     </div>
-
-
-    <div class="row">
-         <div class="col-6 align-items-left">
+    <div class="row ">                      
+        <div class="col-4">
             <table class="table table-bordered  table-sm">
                 <thead>
                     <tr>
-                        <th>Credit Entrée</th>
-                        <th>Credit Sortie</th>                                             
+                        <th>Credit Entrée</th>  
+                        <th>Credit Sortie</th>                                          
                     </tr>
                 </thead>
                 <tbody>               
@@ -134,8 +140,11 @@
                         </tr>                 
                 </tbody>
             </table>
-        </div>
+        </div>   
     </div>
+
+
+      
         
 
 
