@@ -8,6 +8,8 @@ use App\article;
 use App\bon_sortie;
 use App\bon_entre;
 use App\stock;
+use App\Decharge;
+
 
 
 class WelcomeContorller extends Controller
@@ -22,7 +24,8 @@ class WelcomeContorller extends Controller
     	$bs = bon_sortie::where('date_', $today)->get();
         $be = bon_entre::where('date_', $today)->get();
         $stk = stock::whereDate('created_at',$today)->get();
-        return view('welcome',compact('articles','bs','be','stk'));
+        $dech = Decharge::whereDate('created_at',$today)->get();
+        return view('welcome',compact('articles','bs','be','stk','dech'));
 
     }
 //__________________________________________________________//

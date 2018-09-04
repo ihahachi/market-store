@@ -12,7 +12,10 @@
     <li class="breadcrumb-item">
             <a href="{{url('be_entre') }}">Bon Entrée</a>
     </li>
-    <li class="breadcrumb-item active"> {{$bon->ref}} : {{ $bon->vendeur->nom }} </li>
+    <li class="breadcrumb-item active">
+        <b> {{ $bon->vendeur->nom }}</b>
+        <small>( {{ $bon->ref }} : {{ $bon->date_ }} )</small>
+    </li>
     </ol>
 
      <!-- Message request  -->

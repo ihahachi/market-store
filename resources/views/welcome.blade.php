@@ -62,15 +62,23 @@
               </div>
             </div>
             <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-warning o-hidden h-100">
+              <div class="card text-white bg-info o-hidden h-100">
                 <div class="card-body">
                   <div class="card-body-icon">
                     <i class="fas fa-fw fa-shopping-cart"></i>
                   </div>
-                  <div class="mr-5">123 New Orders!</div>
+                  <div class="mr-5">
+                    <small>
+                      <a class="text-white" href="{{ url('ls_vendeurs') }}">Liste des vendeurs</a>
+                    </small>
+                      <hr>
+                    <small>
+                        Gasoil : {{ $dech->sum('montant') }} DA
+                    </small>
+                  </div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="#">
-                  <span class="float-left">View Details</span>
+                  <span class="float-left">Détails</span>
                   <span class="float-right">
                     <i class="fas fa-angle-right"></i>
                   </span>
