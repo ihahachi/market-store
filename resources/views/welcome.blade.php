@@ -73,8 +73,17 @@
                     </small>
                       <hr>
                     <small>
-                        Gasoil : {{ $dech->sum('montant') }} DA
-                    </small>
+                        Gasoil : {{ $dech->where('nom','Gasoil')->sum('montant') }} DA
+                    </small><br>
+                    <small>
+                      Ftoure : {{ $dech->where('nom','Ftoure')->sum('montant') }} DA
+                    </small><br>
+                    <small>
+                    Service maintenance : {{ $dech->where('nom','Service maintenance')->sum('montant') }} DA
+                    </small><br>
+                    <small>
+                    Avance : {{ $dech->where('nom','Avance')->sum('montant') }} DA
+                    </small><br>
                   </div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="#">
