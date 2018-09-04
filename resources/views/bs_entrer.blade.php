@@ -9,7 +9,7 @@
     <li class="breadcrumb-item">
         <a href="/">Accueil</a>
     </li>
-    <li class="breadcrumb-item active">Bon Sortie</li>
+    <li class="breadcrumb-item active">Bon Entrée</li>
     </ol>
 
      <!-- Message request  -->
@@ -72,7 +72,7 @@
      <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Liste des Bon's Sortie</div>
+              Liste des Bon's Entrée</div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-sm table-hover" id="dataTable" width="100%" cellspacing="0" style="text-align:center;font-size: medium">
@@ -116,6 +116,10 @@
                                     {{ method_field('DELETE') }}
                                     <a href="{{ url('be_entre/print/' . $bs->id ) }}"  class="btn btn-secondary btn-sm">
                                         <i class="fas fa-print "></i>
+                                    </a>
+
+                                    <a href="{{ url('be_entre/edit/' . $bs->id ) }}"  class="btn btn-info btn-sm">
+                                        <i class="fas fa-edit "></i>
                                     </a>
 
                                     <button class="btn btn-danger btn-sm" type="submit">

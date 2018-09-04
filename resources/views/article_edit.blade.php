@@ -55,6 +55,7 @@
                     <div class="form-group">
                     <label>categorie</label>
                     <select name="id_categorie" class="form-control">
+                    <option value="{{ $article->id_categorie }}">{{ $article->categorie->nom }}</option>
                         @foreach ($all as $categorie)
                             <option value="{{ $categorie['id'] }}">{{ $categorie['nom'] }}</option>
                         @endforeach
@@ -66,6 +67,7 @@
                     <div class="form-group">
                     <label>marque</label>
                     <select name="id_marque" class="form-control">
+                        <option value="{{ $article->id_marque }}">{{ $article->marque->nom }}</option>
                         @foreach ($all_m as $marque)
                             <option value="{{ $marque['id'] }}">{{ $marque['nom'] }}</option>
                         @endforeach
@@ -77,6 +79,7 @@
                     <div class="form-group">
                     <label>Dépot</label>
                     <select name="depot_id" class="form-control">
+                        <option value="{{ $article->depot_id }}">{{ $article->depot->nom }}</option>
                         @foreach ($depot_m as $depot)
                             <option value="{{ $depot->id }}">{{ $depot->nom }}</option>
                         @endforeach

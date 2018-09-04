@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 class BonsortieController extends Controller
 {
 //__________________________________________________________//
-    
+
     public function index()
     {
         // get all vendeurs  stort by name

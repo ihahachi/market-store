@@ -43,6 +43,8 @@ class EdetailController extends Controller
         }
         else if($Detail->type == 'RETOUR') {
             $Detail->prix_vent = 0;
+            $article = article::find($request->input('id_article'));
+            $article->addStock($request->input('quantite'));
         }
         else if($Detail->type == 'PERDU') {
             $Detail->prix_vent = 0;

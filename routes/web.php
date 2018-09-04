@@ -39,7 +39,9 @@ Route::get('/backup_bonsorties/{id}/remove','BonsortieController@remove');
 Route::get('be_entre','BonentreController@index');
 Route::post('be_entre','BonentreController@store');
 Route::get('be_entre/{id}','BonentreController@show');
+Route::get('be_entre/edit/{id}','BonentreController@edit');
 Route::put('be_entre/{id}','BonentreController@update');
+Route::put('be_entre/bn/{id}','BonentreController@updateBN');
 route::get('be_entre/print/{id}','BonentreController@LoadPDF');
 
 

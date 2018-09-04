@@ -84,7 +84,14 @@ class BonentreController extends Controller
 
     public function edit($id)
     {
-        //
+        // get all vendeurs  stort by name
+        $vendeurs = vendeur::orderBy('nom')->get();
+        // Get all art.
+         $articles = article::all();
+         $bon = bon_entre::find($id);
+
+         return view('entre_edit',compact('articles','bon','vendeurs'));
+
     }
 //__________________________________________________________//
 
@@ -98,6 +105,24 @@ class BonentreController extends Controller
         $bs->save();
         return back();
     }
+//__________________________________________________________//
+
+    public function updateBN(Request $request, $id)
+    {
+        $bon_entre = bon_entre::find($id);
+
+
+        $bon_entre->ref = $request->input('ref');
+        $bon_entre->date_ = $request->input('date_');
+        $bon_entre->vendeur_id = $request->input('vendeur_id');
+        $bon_entre->montant_versement = $request->input('montant_versement');
+        $bon_entre->cradit_sortie = $request->input('cradit_sortie');
+        $bon_entre->cradit_entree = $request->input('cradit_entree');
+        $bon_entre->ecart =  ( $bon_entre->montant_versement + $request->input('decharges') + $bon_entre->cradit_sortie ) - $bon_entre->montant_total;
+        $bon_entre->save();
+        return redirect('be_entre');
+    }
+
 //__________________________________________________________//
 
     public function destroy($id)
