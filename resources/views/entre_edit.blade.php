@@ -12,7 +12,10 @@
     <li class="breadcrumb-item">
             <a href="{{url('be_entre') }}">Bon Entrée</a>
     </li>
-    <li class="breadcrumb-item active"> {{$bon->ref}} : {{ $bon->vendeur->nom }} </li>
+    <li class="breadcrumb-item active">
+        <b> {{ $bon->vendeur->nom }}</b>
+        <small>( {{ $bon->ref }} : {{ $bon->date_ }} )</small>
+    </li>
     </ol>
 
      <!-- Message request  -->
@@ -32,11 +35,13 @@
         @csrf
             <div class="form-row">
                 <div class="col-md-4">
+                    <label for="exampleInputEmail1">Ref Bon Entrée</label>
                     <input type="text" class="form-control" placeholder="Ref Bon Sortie"
                     value="{{ $bon->ref }}" name="ref">
                 </div>
 
                 <div class="col-md-4">
+                    <label for="exampleInputEmail1">vendeur</label>
                     <select name="vendeur_id" class="form-control">
                     <option value="{{ $bon->vendeur_id }}">{{ $bon->vendeur->nom }}</option>
                         @foreach ($vendeurs as $vendeur)
@@ -46,24 +51,28 @@
                 </div>
 
                 <div class="col-md-4">
-                <input type="date" class="form-control"
-                value="{{ $bon->date_ }}" name="date_">
+                    <label for="exampleInputEmail1">Date</label>
+                    <input type="date" class="form-control"
+                    value="{{ $bon->date_ }}" name="date_">
                 </div>
             </div>
             <br>
             <div class="form-row">
                 <div class="col-md-4">
+                    <label for="exampleInputEmail1">M.versement</label>
                     <input type="number" class="form-control" placeholder="M.versement"
                     value="{{ $bon->montant_versement }}" name="montant_versement">
                 </div>
 
 
                 <div class="col-md-4">
+                    <label for="exampleInputEmail1">Credit sortie</label>
                     <input type="number" class="form-control" placeholder="credit sortie"
                     value="{{ $bon->cradit_sortie }}" name="cradit_sortie">
                 </div>
 
                 <div class="col-md-4">
+                    <label for="exampleInputEmail1">Credit entrer</label>
                     <input type="number" class="form-control" placeholder="credit entrer"
                     value="{{ $bon->cradit_entree }}" name="cradit_entree">
                 </div>

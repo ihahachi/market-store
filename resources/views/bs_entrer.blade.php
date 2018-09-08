@@ -105,7 +105,7 @@
                         @if ( $bs->ecart > 0 )
                             <td class="bg-success">{{ $bs->ecart}}</td>
                         @elseif( $bs->ecart == 0 )
-                            <td>{{ $bs->ecart}}</td>
+                            <td class="bg-secondary">{{ $bs->ecart}}</td>
                         @else
                             <td class="bg-danger">{{ $bs->ecart}}</td>
                         @endif

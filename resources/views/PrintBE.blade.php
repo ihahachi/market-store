@@ -131,7 +131,6 @@
                         <th>Total Frais</th> 
                         <th>Montant Total</th> 
                         <th>Montant Versement</th>
-
                         <th>ECART</th>                                         
                     </tr>
                 </thead>
