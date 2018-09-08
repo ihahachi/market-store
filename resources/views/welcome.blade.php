@@ -10,10 +10,13 @@
         <a href="{{ url('/') }}">Accueil</a>
     </li>
 
+
     </ol>
+
 
     <!-- Page Content -->
     <h1>{{ config('constants.nom' )}}</h1>
+    <a  href="{{ url('report')}} ">Rapport de jour</a>
     <hr>
       <!-- Icon Cards-->
       <div class="row">
