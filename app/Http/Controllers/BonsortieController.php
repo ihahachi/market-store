@@ -27,7 +27,14 @@ class BonsortieController extends Controller
 
         // get last record
         $last = bon_sortie::orderBy('created_at','desc')->first();
-        $NewRef = "BS000" . $last->id . "/" . date("Y");
+
+        if ( $last == null) {
+            $NewRef = 'BS0001'. "/" . date("Y");
+         } else {
+            $last->id = $last->id + 1 ;
+            $NewRef = "BS000" . $last->id . "/" . date("Y");
+         }
+
         // return view
         return view('bs_sortie', compact('bon_sortie','vendeurs','NewRef'));
     }

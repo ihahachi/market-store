@@ -28,7 +28,7 @@ class BonentreController extends Controller
          $last = bon_entre::orderBy('created_at','desc')->first();
 
          if ( $last == null) {
-            $NewRef = 'BE0001';
+            $NewRef = 'BE0001'. "/" . date("Y");
          } else {
             $last->id = $last->id + 1 ;
             $NewRef = "BE000" . $last->id . "/" . date("Y");
