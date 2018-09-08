@@ -69,27 +69,34 @@
                   </div>
                   <div class="mr-5">
                     <small>
-                      <a class="text-white" href="{{ url('ls_vendeurs') }}">Liste des vendeurs</a>
-                    </small>
-                      <hr>
+                            Ftoure : {{ $dech->where('nom','Ftoure')->sum('montant') }} DA
+                    </small><br>
                     <small>
                         Gasoil : {{ $dech->where('nom','Gasoil')->sum('montant') }} DA
                     </small><br>
                     <small>
-                      Ftoure : {{ $dech->where('nom','Ftoure')->sum('montant') }} DA
+                            Promotion : {{ $dech->where('nom','Promotion')->sum('Promotion') }} DA
                     </small><br>
                     <small>
-                    Service maintenance : {{ $dech->where('nom','Service maintenance')->sum('montant') }} DA
+                    S. Maintenance : {{ $dech->where('nom','Service maintenance')->sum('montant') }} DA
                     </small><br>
                     <small>
-                    Avance : {{ $dech->where('nom','Avance')->sum('montant') }} DA
+                            Décharge : {{ $dech->where('nom','Décharge')->sum('montant') }} DA
+                    </small><br>
+                    <small>
+                            Clarque : {{ $dech->where('nom','Clarque')->sum('montant') }} DA
+                    </small><br>
+                    <small>
+                            Avance : {{ $dech->where('nom','Avance')->sum('montant') }} DA
+                    </small><br>
+                    <small>
+                            Perdu : {{ $dech->where('nom','Perdu')->sum('montant') }} DA
                     </small><br>
                   </div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="#">
-                  <span class="float-left">Détails</span>
-                  <span class="float-right">
-                    <i class="fas fa-angle-right"></i>
+                  <span class="float-left">Décharge complète : {{ $dech->sum('montant') }} DA</span>
+
                   </span>
                 </a>
               </div>
@@ -106,24 +113,24 @@
                   <hr>
                   <div class="mr-5">
                     <a class="text-white" href="{{ url('stocks/perdu') }}">
-                        <small>Stock Perdu : 
+                        <small>Stock Perdu :
                           {{ $stk->where('type','PERDU')->count() }}
                         </small>
                     </a>
                    </div>
                    <div class="mr-5">
                     <a class="text-white" href="{{ url('stocks/out') }}">
-                        <small>Stock Sortie : 
+                        <small>Stock Sortie :
                           {{ $stk->where('type','OUT')->count() }}
                         </small>
                     </a>
                    </div>
                    <div class="mr-5">
                     <a class="text-white" href="{{ url('stocks/in') }}">
-                        <small>Stock Entrer : 
+                        <small>Stock Entrer :
                           {{ $stk->where('type','IN')->count() }}
                         </small>
-                    </a>  
+                    </a>
                    </div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="{{ url('articles')}}">
