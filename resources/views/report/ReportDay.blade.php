@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            <br>
+            
             <br>
             <br>
             <br>
@@ -59,7 +59,7 @@
             </div>
 
 
-            <br>
+            
             <br>
             <br>
 
@@ -85,12 +85,12 @@
                         @foreach ($bon_entre as $be)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $be->vendeur->nom }}</td>
+                                <td>{{ $be->nom }}</td>
                                 <td>{{ $be->montant_total }} DA</td>
                                 <td>{{ $be->montant_versement }} DA</td>
                                 <td>{{ $be->cradit_sortie }} DA</td>
                                 <td>{{ $be->cradit_entree }} DA</td>
-                                <td>{{ $be->decharges->sum('montant') }} DA</td>
+                                <td>{{ $be->montant }} DA</td>
                                 <td>{{ $be->ecart }} DA</td>
                             </tr>
                         @endforeach
@@ -115,6 +115,16 @@
                             <td>
                                 <strong>
                                         {{number_format($bon_entre->sum('cradit_entree'),2)}} DA
+                                </strong>
+                            </td>
+                            <td>
+                                <strong>
+                                        {{number_format($bon_entre->sum('montant'),2)}} DA
+                                </strong>
+                            </td>
+                            <td>
+                                <strong>
+                                        {{number_format($bon_entre->sum('ecart'),2)}} DA
                                 </strong>
                             </td>
 
