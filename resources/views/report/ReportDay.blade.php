@@ -46,7 +46,7 @@
             <div class="row align-items-start tete">
                 <div class="col-md-6">
                     <small><b>Address : </b>{{ config('constants.address' )}}</small><br>
-                <small><b>Date :</b> {{ $today }}</small>
+                <small><b>Date de :</b> {{ $from }} <b>à</b>  {{ $to }}</small>
                 </div>
             </div>
 
@@ -55,7 +55,7 @@
             <br>
             <br>
             <div class="row align-items-start">
-                <h6 class="titre"><b>Rapport de jour</b></h6>
+                <h6 class="titre"><b>Rapport</b></h6>
             </div>
 
 

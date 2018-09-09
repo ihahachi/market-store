@@ -11,7 +11,9 @@
 |
 */
 Route::get('report', 'ReportController@Repotvendeur');
-
+Route::get('report/yesterday', 'ReportController@RepotvendeurHier');
+Route::get('report/week', 'ReportController@RepotvendeurWeek');
+Route::get('report/month', 'ReportController@RepotvendeurMonth');
 
 
 Route::get('/', 'WelcomeContorller@index');

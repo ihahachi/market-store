@@ -16,7 +16,24 @@
 
     <!-- Page Content -->
     <h1>{{ config('constants.nom' )}}</h1>
-    <a  href="{{ url('report')}} ">Rapport de jour</a>
+
+    <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="{{ url('report')}} ">Rapport aujourd'hui</a>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="{{ url('report/yesterday')}} ">Rapport d'hier</a>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="{{ url('report/week')}} ">Rapport de la semaine</a>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="{{ url('report/month')}} ">Rapport du mois</a>
+    </li>
+
+
+    </ol>
+    
     <hr>
       <!-- Icon Cards-->
       <div class="row">
