@@ -71,10 +71,12 @@
                       <td>{{ $vendeur['tel'] }}</td>
                       <td>
 
-                          <a href="{{ url('/bs_sortie/vendeur/'. $vendeur['id']) }}" class="btn btn-info btn-sm">
+                          <a href="{{ url('bs_sortie/vendeur/'. $vendeur['id']) }}" class="btn btn-info btn-sm">
                               <i class="fas fa-file-upload"></i> Bon
                           </a>
-                          <button class="btn btn-success btn-sm"><i class="fas fa-file-download"></i> Bon</button>
+                          <a href="{{ url('be_entre/vendeur/'. $vendeur['id']) }}" class="btn btn-success btn-sm">
+                                 <i class="fas fa-file-download"></i> Bon
+                          </a>
                           <button class="btn btn-outline-info btn-sm"><i class="fas fa-users"></i> Clients</button>
                         </td>
                       <td>

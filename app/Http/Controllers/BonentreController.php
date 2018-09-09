@@ -42,6 +42,14 @@ class BonentreController extends Controller
     }
 //__________________________________________________________//
 
+        public function be_vendeur($id)
+        {
+            $bon_entres = vendeur::find($id)->bon_entres()->orderBy('date_','desc')->paginate(10);;
+            $vendeur = vendeur::find($id);
+            return view('be_vendeur', compact('bon_entres','vendeur'));
+
+        }
+//__________________________________________________________//
     public function create()
     {
         //

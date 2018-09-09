@@ -40,6 +40,7 @@ Route::get('/backup_bonsorties/{id}/remove','BonsortieController@remove');
 
 
 Route::get('be_entre','BonentreController@index');
+Route::get('be_entre/vendeur/{id}','BonentreController@be_vendeur');
 Route::post('be_entre','BonentreController@store');
 Route::get('be_entre/{id}','BonentreController@show');
 Route::get('be_entre/edit/{id}','BonentreController@edit');
