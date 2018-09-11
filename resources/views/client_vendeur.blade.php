@@ -9,7 +9,12 @@
     <li class="breadcrumb-item">
         <a href="{{ url('/') }}">Accueil</a>
     </li>
-    <li class="breadcrumb-item active">Liste des clients</li>
+    <li class="breadcrumb-item">
+            <a href="{{ url('ls_vendeurs') }}">Liste des vendeurs</a>
+        </li>
+    <li class="breadcrumb-item active">
+        Liste des clients : (<small><b>{{ $vendeur->nom }}</b></small>)
+    </li>
     </ol>
 
     <!-- Message request  -->
@@ -40,7 +45,7 @@
                         <th>N°</th>
                       <th>Nom Client</th>
                       <th>Tele</th>
-                      <th>Credit Verssment</th>
+                      <th>Credit</th>
                       <th>Opérations</th>
                     </tr>
                   </thead>

@@ -9,7 +9,16 @@
     <li class="breadcrumb-item">
         <a href="{{ url('/') }}">Accueil</a>
     </li>
-    <li class="breadcrumb-item active">Liste des clients</li>
+    <li class="breadcrumb-item">
+        <a href="{{ url('ls_vendeurs') }}">Liste des vendeurs</a>
+    </li>
+    <li class="breadcrumb-item">
+        <a href="{{ url('clients') }}">Liste des clients</a>
+    </li>
+    <li class="breadcrumb-item active">
+            <b> {{ $client->nom }}</b>
+           <a href="{{ url('ls_vendeurs/clients/'.$client->id_vendeur) }}"><small>( {{ $client->vendeur->nom }} )</small></a>
+    </li>
     </ol>
 
     <!-- Message request  -->
@@ -38,35 +47,27 @@
                   <thead>
                     <tr>
                         <th>N°</th>
-                      <th>Nom Client</th>
-                      <th>Tele</th>
-                      <th>Credit Verssment</th>
+                      <th>Date</th>
+                      <th>Credit</th>
+                      <th>Verssment</th>
                       <th>Opérations</th>
                     </tr>
                   </thead>
                   <tbody>
-                  @foreach ($clients as $client)
+                  @foreach ($client->deposes as $depose)
                     <tr >
                         <td>{{ $loop->iteration }}</td>
-                      <td>{{ $client->nom }}</td>
-                      <td>{{ $client->tel}}</td>
+                      <td>{{ $depose->date_ }}</td>
+                      <td>{{ $depose->depose}} DA</td>
+                      <td>{{ $depose->recette}} DA</td>
                       <td>
-
-                          <a href="{{ url('clients/'. $client->id) }}" class="btn btn-info btn-sm">
-                            <i class="fas fa-money-bill-alt"></i> Credit
-                          </a>
-                        </td>
-                      <td>
-                        <form action="{{ url('clients/' . $client->id ) }}" method="POST">
+                        <form action="#" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
 
-                            <a class="btn btn-info btn-sm" href="{{ url('clients/' .$client->id. '/edit' ) }}">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <button class="btn btn-danger btn-sm" type="submit">
+                            {{-- <button  class="btn btn-danger btn-sm disabled" type="submit">
                                 <i class="fas fa-trash-alt"></i>
-                            </button>
+                            </button> --}}
                         </form>
                         </td>
                     </tr>

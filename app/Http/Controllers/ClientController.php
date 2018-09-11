@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\client;
+use App\vendeur;
 
 class ClientController extends Controller
 {
@@ -30,7 +31,7 @@ class ClientController extends Controller
     public function show($id)
     {
         $client = client::findOrfail($id);
-        return $client;
+        return view('client_depose',compact('client'));
     }
 
 
@@ -62,8 +63,9 @@ class ClientController extends Controller
 
     public function client_vendeur($id)
     {
-        $client = new client;
-        $client = $client->client_by_vendeur($id);
-        return $client;
+        $clients = new client;
+        $vendeur = vendeur::find($id);
+        $clients = $clients->client_by_vendeur($id);
+        return view('client_vendeur',compact('clients','vendeur'));
     }
 }
