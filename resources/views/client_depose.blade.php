@@ -33,7 +33,30 @@
     </div>
 
 
-
+    <div class="row" style="margin-left: 0px;">
+            <form action="{{ url('depose') }}" method="post">
+            @csrf
+                <div class="form-row">
+                    <div class="col">
+                    <input type="date" class="form-control"
+                    value="{{ old('date_')}}" name="date_">
+                    </div>
+                    <div class="col">
+                    <input type="number" class="form-control" placeholder="Credit"
+                    value="{{ old('depose')}}" name="depose">
+                    </div>
+                    <div class="col">
+                    <input type="number" class="form-control" placeholder="Verssement"
+                    value="{{ old('recette')}}" name="recette">
+                    </div>
+                    <input hidden type="numbbr" value="{{ $client->id }} " class="form-control" name="client_id">
+                    <button type="submit" class="btn btn-info">
+                            <i class="fas fa-check"></i>
+                    </button>
+                </div>
+            </form>
+           </div>
+           <br>
 
 
      <!-- DataTables Example -->

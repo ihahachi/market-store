@@ -80,3 +80,4 @@ Route::get('ls_vendeurs/clients/{id}','ClientController@client_vendeur');
 Route::post('clients','ClientController@store');
 Route::delete('clients/{id}','ClientController@destroy');
 
+Route::post('depose','DeposeController@store');

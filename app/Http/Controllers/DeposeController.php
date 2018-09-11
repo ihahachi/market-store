@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\depose;
 
 class DeposeController extends Controller
 {
@@ -26,15 +27,16 @@ class DeposeController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $depose = new depose;
+        $depose->date_ = $request->date_;
+        $depose->client_id = $request->client_id;
+        $depose->depose = $request->depose;
+        $depose->recette = $request->recette;
+        $depose->save();
+        return back();
     }
 
     /**
