@@ -67,9 +67,7 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
 
-                            <a class="btn btn-info btn-sm" href="{{ url('clients/' .$client->id. '/edit' ) }}">
-                                <i class="fas fa-edit"></i>
-                            </a>
+
                             <button class="btn btn-danger btn-sm" type="submit">
                                 <i class="fas fa-trash-alt"></i>
                             </button>

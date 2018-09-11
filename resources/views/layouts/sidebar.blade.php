@@ -66,8 +66,10 @@
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
                   <h6 class="dropdown-header">Res. Corbeille</h6>
                   <a class="dropdown-item" href="{{ url('/backup_vendeurs') }}">Vendeurs</a>
+                  <a class="dropdown-item" href="#">Clients</a>
                   <a class="dropdown-item" href="{{ url('/backup_bonsorties') }}">Bon Sortie</a>
-                  <a class="dropdown-item" href="{{ url('/articles') }}">Bon Entrer</a>
+                  <a class="dropdown-item" href="#">Bon Entrer</a>
+
 
 
                 </div>
