@@ -26,7 +26,7 @@
 
     <!-- Page Content -->
    <div class="row" style="margin-left: 0px;">
-    <form action="{{ url('/ls_vendeurs') }}" method="post">
+    <form action="{{ url('ls_vendeurs') }}" method="post">
     @csrf
         <div class="form-row">
             <div class="col">
@@ -42,6 +42,32 @@
             </button>
         </div>
     </form>
+   </div>
+   <br>
+   <div class="row" style="margin-left: 0px;">
+        <form  action="{{ url('clients') }}" method="post">
+            @csrf
+                <div class="form-row">
+                    <div class="col">
+                    <select name="id_vendeur" class="form-control">
+                            @foreach ($all as $vendeur)
+                                <option value="{{ $vendeur->id }}">{{ $vendeur->nom }}</option>
+                            @endforeach
+                        </select>
+                     </div>
+                    <div class="col">
+                    <input type="text" class="form-control" placeholder="Nom de client"
+                    value="{{ old('nom')}}" name="nom">
+                    </div>
+                    <div class="col">
+                    <input type="text" class="form-control" placeholder="Tele"
+                    value="{{ old('tel')}}" name="tel">
+                    </div>
+                    <button type="submit" class="btn btn-info">
+                            <i class="fas fa-user-plus"></i>
+                    </button>
+                </div>
+            </form>
    </div>
    <br>
 
@@ -67,11 +93,11 @@
                   @foreach ($all as $vendeur)
                     <tr >
                         <td>{{ $loop->iteration }}</td>
-                      <td>{{ $vendeur['nom'] }}</td>
-                      <td>{{ $vendeur['tel'] }}</td>
+                      <td>{{ $vendeur->nom }}</td>
+                      <td>{{ $vendeur->tel}}</td>
                       <td>
 
-                          <a href="{{ url('bs_sortie/vendeur/'. $vendeur['id']) }}" class="btn btn-info btn-sm">
+                          <a href="{{ url('bs_sortie/vendeur/'. $vendeur->id) }}" class="btn btn-info btn-sm">
                               <i class="fas fa-file-upload"></i> Bon
                           </a>
                           <a href="{{ url('be_entre/vendeur/'. $vendeur['id']) }}" class="btn btn-success btn-sm">

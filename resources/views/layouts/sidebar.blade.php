@@ -15,11 +15,12 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Les Bon's:</h6>
-            <a class="dropdown-item" href="{{ url('/ls_vendeurs') }}">Vendeurs</a>
+            <a class="dropdown-item" href="{{ url('ls_vendeurs') }}">Vendeurs</a>
+            <a class="dropdown-item" href="{{ url('clients') }}">Clients</a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header">Autres Pages:</h6>
-            <a class="dropdown-item" href="{{ url('/bs_sortie') }}">Bon Sortie</a>
-            <a class="dropdown-item" href="{{ url('/be_entre') }}">Bon Entrer</a>
+            <a class="dropdown-item" href="{{ url('bs_sortie') }}">Bon Sortie</a>
+            <a class="dropdown-item" href="{{ url('be_entre') }}">Bon Entrer</a>
           </div>
         </li>
 

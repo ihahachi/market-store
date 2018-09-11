@@ -77,3 +77,6 @@ Route::post('stocks','StockController@store');
 Route::get('clients','ClientController@index');
 Route::get('clients/{id}','ClientController@show');
 Route::get('ls_vendeurs/clients/{id}','ClientController@client_vendeur');
+Route::post('clients','ClientController@store');
+Route::delete('clients/{id}','ClientController@destroy');
+
