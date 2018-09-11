@@ -11,7 +11,7 @@ use App\depot;
 class ArticleController extends Controller
 {
 //__________________________________________________________
-   
+
     public function index()
     {
         $articles = article::all();
@@ -27,17 +27,17 @@ class ArticleController extends Controller
         return view('articles',compact('articles'));
     }
 //__________________________________________________________//
-   
+
     public function create()
     {
-        $all = categorie::all();        
+        $all = categorie::all();
         $all_m = marque::all();
         $depot_m = depot::all();
 
         return view('create_article', compact('all','all_m','depot_m'));
     }
 //__________________________________________________________//
-   
+
     public function store(Request $request)
     {
         $articles = new article;
@@ -58,16 +58,16 @@ class ArticleController extends Controller
         return redirect('/articles');
     }
 //__________________________________________________________//
-   
+
     public function show($id)
     {
         //
     }
 //__________________________________________________________//
-    
+
     public function edit($id)
     {
-        $all = categorie::all();        
+        $all = categorie::all();
         $all_m = marque::all();
         $depot_m = depot::all();
         $article = article::find($id);
@@ -100,7 +100,7 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         $article = article::find($id);
-        
+
         $article->delete();
         return back();
     }

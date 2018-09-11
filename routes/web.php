@@ -74,3 +74,5 @@ Route::get('stocks/perdu','StockController@perdu');
 Route::post('stocks','StockController@store');
 
 
+Route::get('clients','ClientController@index');
+Route::get('clients/{id}','ClientController@show');
