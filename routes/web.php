@@ -54,17 +54,17 @@ route::get('be_entre/print/{id}','BonentreController@LoadPDF');
 Route::post('/edetail','EdetailController@store');
 Route::delete('/edetail/{id}','EdetailController@destroy');
 
-Route::post('/decharge','DechargeController@store');
-Route::delete('/decharge/{id}','DechargeController@destroy');
+Route::post('decharge','DechargeController@store');
+Route::delete('decharge/{id}','DechargeController@destroy');
 
-Route::get('/ls_vendeurs','VendeurController@index');
-Route::get('/ls_vendeurs/{id}/edit','VendeurController@edit');
-Route::put('/ls_vendeurs/{id}','VendeurController@update');
-Route::post('/ls_vendeurs','VendeurController@store');
-Route::delete('/ls_vendeurs/{id}','VendeurController@destroy');
-Route::get('/backup_vendeurs','VendeurController@backup');
-Route::get('/backup_vendeurs/{id}','VendeurController@undelete');
-Route::get('/backup_vendeurs/{id}/remove','VendeurController@remove');
+Route::get('ls_vendeurs','VendeurController@index');
+Route::get('ls_vendeurs/{id}/edit','VendeurController@edit');
+Route::put('ls_vendeurs/{id}','VendeurController@update');
+Route::post('ls_vendeurs','VendeurController@store');
+Route::delete('ls_vendeurs/{id}','VendeurController@destroy');
+Route::get('backup_vendeurs','VendeurController@backup');
+Route::get('backup_vendeurs/{id}','VendeurController@undelete');
+Route::get('backup_vendeurs/{id}/remove','VendeurController@remove');
 
 
 Route::get('stocks','StockController@index');
@@ -76,3 +76,4 @@ Route::post('stocks','StockController@store');
 
 Route::get('clients','ClientController@index');
 Route::get('clients/{id}','ClientController@show');
+Route::get('ls_vendeurs/clients/{id}','ClientController@client_vendeur');

@@ -77,14 +77,14 @@
                           <a href="{{ url('be_entre/vendeur/'. $vendeur['id']) }}" class="btn btn-success btn-sm">
                                  <i class="fas fa-file-download"></i> Bon
                           </a>
-                          <button class="btn btn-outline-info btn-sm"><i class="fas fa-users"></i> Clients</button>
+                          <a href="{{ url('ls_vendeurs/clients/' .$vendeur['id'] ) }}" class="btn btn-outline-info btn-sm"><i class="fas fa-users"></i> Clients</a>
                         </td>
                       <td>
                         <form action="{{ url('/ls_vendeurs/' .$vendeur['id'] ) }}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
 
-                            <a class="btn btn-info btn-sm" href="{{ url('/ls_vendeurs/' .$vendeur['id']. '/edit' ) }}">
+                            <a class="btn btn-info btn-sm" href="{{ url('ls_vendeurs/' .$vendeur['id']. '/edit' ) }}">
                                 <i class="fas fa-edit"></i>
                             </a>
                             <button class="btn btn-danger btn-sm" type="submit">
