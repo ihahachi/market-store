@@ -99,8 +99,12 @@
                 </table>
               </div>
             </div>
-            <div class="card-footer small text-muted">La dernière modification à 11:59 PM</div>
-          </div>
+        <div class="card-footer small text-muted">
+            Credit Total : <strong>{{ $client->deposes->sum('depose') }} DA</strong> |
+            | Verssment Total : <strong>{{ $client->deposes->sum('recette') }} DA</strong> |
+            | Reste : <strong>{{ $client->deposes->sum('depose') - $client->deposes->sum('recette') }} DA</strong>
+        </div>
+
 
 </div>
 @endsection
