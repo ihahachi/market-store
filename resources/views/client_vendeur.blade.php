@@ -79,7 +79,9 @@
                 </table>
               </div>
             </div>
-            <div class="card-footer small text-muted">La dernière modification à 11:59 PM</div>
+            <div class="card-footer small text-muted">
+                Reste credit total : <strong>{{ $sumDepose }} DA</strong>
+            </div>
           </div>
 
 </div>

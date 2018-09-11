@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\client;
 use App\vendeur;
+use App\depose;
 
 class ClientController extends Controller
 {
@@ -64,8 +65,10 @@ class ClientController extends Controller
     public function client_vendeur($id)
     {
         $clients = new client;
+        $depose = new depose;
         $vendeur = vendeur::find($id);
+        $sumDepose = $depose->SumResteByVendeur($vendeur->id);
         $clients = $clients->client_by_vendeur($id);
-        return view('client_vendeur',compact('clients','vendeur'));
+        return view('client_vendeur',compact('clients','vendeur','sumDepose'));
     }
 }

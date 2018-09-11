@@ -11,6 +11,7 @@ class client extends Model
    {
         return $this->orderBy('nom')
         ->where('id_vendeur',$id)
+        ->orderBy('nom')
         ->get();
 
    }
