@@ -40,6 +40,40 @@
         </div>
     </form>
    </div>
+    <br>
+       <h5>Rapport de décharges : </h5>
+    <div class="row" style="margin-left: 0px;">
+    
+    <form action="{{ url('report_decharge') }}" method="post">
+    @csrf
+        <div class="form-row">
+            <div class="col">           
+                <select name="decharges" class="form-control">
+                    <option value="all">Tous les décharges</option>
+                    <option value="Ftoure">Ftoure</option>
+                    <option value="Gasoil">Gasoil</option>
+                    <option value="Service maintenance">Service maintenance</option>
+                    <option value="Promotion">Promotion</option>
+                    <option value="Décharge">Décharge</option>
+                    <option value="Clarque">Clarque</option>
+                    <option value="Avance">Avance</option>
+                    <option value="Perdu">Perdu</option>
+                </select>
+            </div>
+            <div class="col">
+                    <select name="vendeur_id" class="form-control">
+                    <option value="all">Tous les vendeurs</option>
+                        @foreach ($vendeurs as $vendeur)
+                            <option value="{{ $vendeur->id }}">{{ $vendeur->nom }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            <button type="submit" class="btn btn-info">
+                <i class="fas fa-print"></i>
+            </button>
+        </div>
+    </form>
+   </div>
    
      
 

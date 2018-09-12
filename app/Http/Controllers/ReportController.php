@@ -42,6 +42,14 @@ public function store(Request $request)
     ->setPaper('a5', 'landscape');
     return $pdf->stream();
 }
+//_________________________________________________________________________________  
+public function dech(Request $request)
+{
+    $vendeur = $request->vendeur_id;
+    $dech = new decharge;
+    $dech = $dech->report($vendeur);
+    return  $dech;
+}
 //_________________________________________________________________________________    
 public function Repotvendeur()
 {
