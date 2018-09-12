@@ -14,6 +14,34 @@ use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {
+//_________________________________________________________________________________  
+
+public function index()
+{
+    $vendeurs = vendeur::all();
+    return view('report.report_general',compact('vendeurs'));
+}
+//_________________________________________________________________________________
+public function store(Request $request)
+{
+    $to = $request->date_b;
+    $from = $request->date_a;
+    $vendeur = $request->vendeur_id;
+    $bon = new bon_entre;
+    if ($vendeur=='all')
+        {
+            $bon_entre =$bon->report($from,$to);
+        }
+    else
+        {
+            $bon_entre =$bon->report($from,$to,$vendeur); 
+        }    
+    
+
+    $pdf = PDF::loadView('report.ReportDay',compact('bon_entre','dech','to','from'))
+    ->setPaper('a5', 'landscape');
+    return $pdf->stream();
+}
 //_________________________________________________________________________________    
 public function Repotvendeur()
 {
