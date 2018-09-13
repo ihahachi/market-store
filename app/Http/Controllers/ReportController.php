@@ -39,7 +39,10 @@ public function store(Request $request)
     
 
     $pdf = PDF::loadView('report.ReportDay',compact('bon_entre','dech','to','from'))
-    ->setPaper('a5', 'landscape');
+    ->setPaper(
+        config('constants.rapportActivite'),
+        config('constants.rapportActiviteO')
+    );
     return $pdf->stream();
 }
 //_________________________________________________________________________________  
@@ -56,7 +59,10 @@ public function dech(Request $request)
         $to
     );
     $pdf = PDF::loadView('report.report_decharge',compact('dech','to','from'))
-    ->setPaper('a5');
+    ->setPaper(
+        config('constants.rapportDecharges'),
+        config('constants.rapportDechargesO')
+    );
     return $pdf->stream();
 }
 //_________________________________________________________________________________    
@@ -72,7 +78,10 @@ public function Repotvendeur()
     $from = $from->format('d/m/Y');
 
     $pdf = PDF::loadView('report.ReportDay',compact('bon_entre','dech','to','from'))
-    ->setPaper('a5', 'landscape');
+    ->setPaper(
+        config('constants.rapportActivite'),
+        config('constants.rapportActiviteO')
+    );
     return $pdf->stream();
 }
 //_________________________________________________________________________________
@@ -89,7 +98,10 @@ public function RepotvendeurHier()
     $from = $from->format('d/m/Y');
 
     $pdf = PDF::loadView('report.ReportDay',compact('bon_entre','dech','to','from'))
-    ->setPaper('a5', 'landscape');
+    ->setPaper(
+        config('constants.rapportActivite'),
+        config('constants.rapportActiviteO')
+    );
     return $pdf->stream();
 }
 //_________________________________________________________________________________
@@ -106,7 +118,10 @@ public function RepotvendeurWeek()
     $from = $from->format('d/m/Y');
 
     $pdf = PDF::loadView('report.ReportDay',compact('bon_entre','dech','to','from'))
-    ->setPaper('a5', 'landscape');
+    ->setPaper(
+        config('constants.rapportActivite'),
+        config('constants.rapportActiviteO')
+    );
     return $pdf->stream();
 }
 //_________________________________________________________________________________
@@ -123,7 +138,10 @@ public function RepotvendeurMonth()
     $from = $from->format('d/m/Y');
 
     $pdf = PDF::loadView('report.ReportDay',compact('bon_entre','dech','to','from'))
-    ->setPaper('a5', 'landscape');
+    ->setPaper(
+        config('constants.rapportActivite'),
+        config('constants.rapportActiviteO')
+    );
     return $pdf->stream();
 
 }
