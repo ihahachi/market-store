@@ -45,10 +45,16 @@ public function store(Request $request)
 //_________________________________________________________________________________  
 public function dech(Request $request)
 {
+    $to = $request->date_b;
+    $from = $request->date_a;
+
     $dech = new decharge;
     $dech = $dech->report(
         $request->report_vendeur,
-        $request->report_decharge
+        $request->report_decharge,
+        $from,
+        $to
+
     );
     return  $dech;
     // return $request;

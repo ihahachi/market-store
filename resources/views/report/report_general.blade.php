@@ -47,6 +47,12 @@
     <form action="{{ url('report_decharge') }}" method="post">
     @csrf
         <div class="form-row">
+                <div class="col">           
+                    <input type="date" class="form-control"  name="date_a">
+                </div>
+                <div class="col">
+                    <input type="date" class="form-control" name="date_b">
+                </div>
             <div class="col">           
                 <select name="report_decharge" class="form-control">
                     <option value="all">Tous les décharges</option>
