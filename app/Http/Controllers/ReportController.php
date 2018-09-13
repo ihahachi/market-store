@@ -45,10 +45,13 @@ public function store(Request $request)
 //_________________________________________________________________________________  
 public function dech(Request $request)
 {
-    $vendeur = $request->vendeur_id;
     $dech = new decharge;
-    $dech = $dech->report($vendeur);
+    $dech = $dech->report(
+        $request->report_vendeur,
+        $request->report_decharge
+    );
     return  $dech;
+    // return $request;
 }
 //_________________________________________________________________________________    
 public function Repotvendeur()

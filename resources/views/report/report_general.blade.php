@@ -48,7 +48,7 @@
     @csrf
         <div class="form-row">
             <div class="col">           
-                <select name="decharges" class="form-control">
+                <select name="report_decharge" class="form-control">
                     <option value="all">Tous les décharges</option>
                     <option value="Ftoure">Ftoure</option>
                     <option value="Gasoil">Gasoil</option>
@@ -61,7 +61,7 @@
                 </select>
             </div>
             <div class="col">
-                    <select name="vendeur_id" class="form-control">
+                    <select name="report_vendeur" class="form-control">
                     <option value="all">Tous les vendeurs</option>
                         @foreach ($vendeurs as $vendeur)
                             <option value="{{ $vendeur->id }}">{{ $vendeur->nom }}</option>
