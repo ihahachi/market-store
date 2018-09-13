@@ -54,10 +54,10 @@ public function dech(Request $request)
         $request->report_decharge,
         $from,
         $to
-
     );
-    return  $dech;
-    // return $request;
+    $pdf = PDF::loadView('report.report_decharge',compact('dech','to','from'))
+    ->setPaper('a5');
+    return $pdf->stream();
 }
 //_________________________________________________________________________________    
 public function Repotvendeur()
