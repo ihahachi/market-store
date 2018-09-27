@@ -13,7 +13,7 @@
     .titre{
         text-align: center;
         margin-bottom: 15px;
-       
+
     }
     .rtl{
 
@@ -34,7 +34,7 @@
     .tete{
         font-size: 8px;
     }
-   
+
 </style>
 <body>
 <div class="container-fluid">
@@ -51,7 +51,7 @@
             <div class="col-md-6 rtl">
                 <small><b>Ref. BS :</b> {{ $bon->ref }}</small><br>
                 <small><b>Vendeur :</b> {{ $bon->vendeur->nom }}</small><br>
-                <small><b>N° Tel :</b> {{ $bon->vendeur->tel }}</small><br>         
+                <small><b>N° Tel :</b> {{ $bon->vendeur->tel }}</small><br>
             </div>
     </div>
 
@@ -60,10 +60,10 @@
     <div class="row align-items-start">
                 <h6 class="titre"><b>BON SORTIE</b></h6>
     </div>
-                
 
-      
-        
+
+
+
 
     <div class="row align-items-start">
            <!-- DataTables Example -->
@@ -72,11 +72,11 @@
                 <thead>
                     <tr>
                         <th>N°</th>
-                        <th>Ref</th>
-                        <th>Désignation</th>                            
+
+                        <th>Désignation</th>
                         <th>Qtn</th>
-                        <th>Prix</th>
-                        <th>Prix</th>
+                        <th>Gros</th>
+                        <th>Détail</th>
                         <th>Retour</th>
                         <th>Perdu</th>
                     </tr>
@@ -85,8 +85,8 @@
                     @foreach ($details as $bs)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $bs->article->ref }}</td>
-                            <td>{{ $bs->article->nom }}</td>                        
+
+                            <td>{{ $bs->article->nom }}</td>
                             <td>{{ $bs->quantite }}</td>
                             <td></td>
                             <td></td>
@@ -98,61 +98,96 @@
             </table>
         </div>
    </div>
-   <div class="row ">                      
+   <div class="row ">
         <div class="col-12">
             <table class="table table-bordered  table-sm">
                 <thead>
                     <tr>
-                        <th>Frais divers</th> 
                         <th>Frais divers</th>
                         <th>Frais divers</th>
                         <th>Frais divers</th>
                         <th>Frais divers</th>
-                        <th>Frais divers</th>                                           
+                        <th>Frais divers</th>
+                        <th>Frais divers</th>
                     </tr>
                 </thead>
-                <tbody>               
-                       <tr>             
+                <tbody>
+                       <tr>
                             <td>1.</td>
                             <td>2.</td>
-                            <td>3.</td>                 
+                            <td>3.</td>
                             <td>4.</td>
                             <td>5.</td>
                             <td>6.</td>
-                        </tr>                
+                        </tr>
                 </tbody>
             </table>
-        </div>   
+        </div>
     </div>
-    <div class="row ">                      
-        <div class="col-4">
+    <div class="row">
+        <div class="col-12">
             <table class="table table-bordered  table-sm">
                 <thead>
                     <tr>
-                        <th>Credit Entrée</th>  
-                        <th>Credit Sortie</th>                                          
+                        <th>Nom</th>
+                        <th>Versement</th>
+
                     </tr>
                 </thead>
-                <tbody>               
-                        <tr>             
-                            <td>#</td> 
-                            <td>#</td>                     
-                        </tr>                 
+                <tbody>
+                        <tr>
+                            <td>1.</td>
+                            <td>1.</td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td>2.</td>
+                        </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td>3.</td>
+                        </tr>
+                        <tr>
+                            <td>4.</td>
+                            <td>4.</td>
+                        </tr>
                 </tbody>
             </table>
-        </div>   
+        </div>
     </div>
+
+    <div class="row ">
+        <div class="col-8">
+            <table class="table table-bordered  table-sm">
+                <thead>
+                    <tr>
+                        <th>Credit Entrée</th>
+                        <th>Credit Sortie</th>
+                        <th>RESST</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>#</td>
+                            <td>#</td>
+                            <td>#</td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 
     <div class="row ">
         <div class="col-10">
             <p class="text-right"><small><strong>Magazine</strong></small></p>
-        </div>    
+        </div>
     </div>
 
 
 
-      
-        
+
+
 
 
 
