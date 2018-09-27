@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -24,8 +24,15 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
 
-    <!-- Styles -->
-    
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+        <style>
+            html,body{
+                font-family: 'Abel', sans-serif;
+                font-weight: 200;
+            }
+        </style>
+
 </head>
   <body id="page-top">
 
@@ -49,13 +56,13 @@
         </div>
       </form>
 
- 
+
 
     </nav>
 
     <div id="wrapper">
 
-      
+
       @yield('sidebar')
 
       <div id="content-wrapper">
@@ -70,11 +77,11 @@
         <!-- Sticky Footer -->
         <footer class="sticky-footer">
           <div class="container my-auto">
-            <div class="copyright text-center my-auto">              
+            <div class="copyright text-center my-auto">
               <span>Date : {{ date("Y-m-d H:i:s") }}</span><br>
               <hr>
               <span><strong>{{ config('constants.nom' )}}</strong></span>
-              
+
             </div>
           </div>
         </footer>
@@ -90,7 +97,7 @@
       <i class="fas fa-angle-up"></i>
     </a>
 
-  
+
 
 
 
