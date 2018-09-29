@@ -14,6 +14,57 @@ use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {
+//_________________________________________________________________________________  
+
+public function index()
+{
+    $vendeurs = vendeur::all();
+    return view('report.report_general',compact('vendeurs'));
+}
+//_________________________________________________________________________________
+public function store(Request $request)
+{
+    $to = $request->date_b;
+    $from = $request->date_a;
+    $vendeur = $request->vendeur_id;
+    $bon = new bon_entre;
+    if ($vendeur=='all')
+        {
+            $bon_entre =$bon->report($from,$to);
+        }
+    else
+        {
+            $bon_entre =$bon->report($from,$to,$vendeur); 
+        }    
+    
+
+    $pdf = PDF::loadView('report.ReportDay',compact('bon_entre','dech','to','from'))
+    ->setPaper(
+        config('constants.rapportActivite'),
+        config('constants.rapportActiviteO')
+    );
+    return $pdf->stream();
+}
+//_________________________________________________________________________________  
+public function dech(Request $request)
+{
+    $to = $request->date_b;
+    $from = $request->date_a;
+
+    $dech = new decharge;
+    $dech = $dech->report(
+        $request->report_vendeur,
+        $request->report_decharge,
+        $from,
+        $to
+    );
+    $pdf = PDF::loadView('report.report_decharge',compact('dech','to','from'))
+    ->setPaper(
+        config('constants.rapportDecharges'),
+        config('constants.rapportDechargesO')
+    );
+    return $pdf->stream();
+}
 //_________________________________________________________________________________    
 public function Repotvendeur()
 {
@@ -27,7 +78,10 @@ public function Repotvendeur()
     $from = $from->format('d/m/Y');
 
     $pdf = PDF::loadView('report.ReportDay',compact('bon_entre','dech','to','from'))
-    ->setPaper('a5', 'landscape');
+    ->setPaper(
+        config('constants.rapportActivite'),
+        config('constants.rapportActiviteO')
+    );
     return $pdf->stream();
 }
 //_________________________________________________________________________________
@@ -44,7 +98,10 @@ public function RepotvendeurHier()
     $from = $from->format('d/m/Y');
 
     $pdf = PDF::loadView('report.ReportDay',compact('bon_entre','dech','to','from'))
-    ->setPaper('a5', 'landscape');
+    ->setPaper(
+        config('constants.rapportActivite'),
+        config('constants.rapportActiviteO')
+    );
     return $pdf->stream();
 }
 //_________________________________________________________________________________
@@ -61,7 +118,10 @@ public function RepotvendeurWeek()
     $from = $from->format('d/m/Y');
 
     $pdf = PDF::loadView('report.ReportDay',compact('bon_entre','dech','to','from'))
-    ->setPaper('a5', 'landscape');
+    ->setPaper(
+        config('constants.rapportActivite'),
+        config('constants.rapportActiviteO')
+    );
     return $pdf->stream();
 }
 //_________________________________________________________________________________
@@ -78,7 +138,10 @@ public function RepotvendeurMonth()
     $from = $from->format('d/m/Y');
 
     $pdf = PDF::loadView('report.ReportDay',compact('bon_entre','dech','to','from'))
-    ->setPaper('a5', 'landscape');
+    ->setPaper(
+        config('constants.rapportActivite'),
+        config('constants.rapportActiviteO')
+    );
     return $pdf->stream();
 
 }

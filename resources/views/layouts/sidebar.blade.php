@@ -56,7 +56,17 @@
                   <a class="dropdown-item" href="{{ url('/stocks/perdu') }}">Stock Perdu</a>
                 </div>
               </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-file-alt"></i>
+                  <span>Rapport</span>
+                </a>
 
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                  <h6 class="dropdown-header">Rapport</h6>
+                  <a class="dropdown-item" href="{{ url('report_general') }}">Rapport Général</a>
+                </div>
+              </li>
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

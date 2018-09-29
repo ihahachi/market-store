@@ -24,6 +24,7 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
 
+<<<<<<< HEAD
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
         <style>
@@ -33,6 +34,12 @@
             }
         </style>
 
+=======
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <!-- Styles -->
+    
+>>>>>>> f92417d85a919c4ed0be92e5617d15f3fe8be7ae
 </head>
   <body id="page-top">
 
@@ -113,6 +120,8 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin.min.js') }}"></script>
+
+    
 
   </body>
 
